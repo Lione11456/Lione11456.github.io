@@ -1392,115 +1392,178 @@
             <div class="testimonials-section fade-in">
             <!-- 강사 프로필 -->
             <div class="profile-section fade-in">
-                <h3>강사 소개</h3>
-                <div class="profile-grid">
-                    <div class="profile-card">
-                        <div class="profile-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                        <h4>학력</h4>
-                        <p>한양대학교 교육대학원<br>교육공학 전공 (재학)</p>
+              <!-- 강사 프로필 -->
+                <div class="profile-section fade-in">
+                    <p class="section-tag">PROFILE</p>
+                    <div class="profile-header">
+                        <img src="./images/profile.jpg" alt="김민준 프로필" class="profile-photo">
+                        <div class="profile-intro">
+                            <h3>김민준</h3>
+                            <p class="profile-role">AI 교육 전문가</p>
+                            <p class="profile-description">현업과 교육의 경계를 허무는 실전형 강사</p>
+                        </div>
                     </div>
                     
-                    <div class="profile-card">
-                        <div class="profile-icon"><i class="fa-solid fa-briefcase"></i></div>
-                        <h4>경력</h4>
-                        <p>7년차 교육 전문가<br>국립대 교육혁신원 출신</p>
-                    </div>
-                    
-                    <div class="profile-card">
-                        <div class="profile-icon"><i class="fa-solid fa-trophy"></i></div>
-                        <h4>실력 인증</h4>
-                        <p>Kaggle 데이터 분석<br>상위 10% 달성</p>
-                    </div>
-                    
-                    <div class="profile-card">
-                        <div class="profile-icon"><i class="fa-solid fa-users"></i></div>
-                        <h4>커뮤니티</h4>
-                        <p>AI 전문 커뮤니티<br>400여 명 리더</p>
-                    </div>
-                    
-                    <div class="profile-card">
-                        <div class="profile-icon"><i class="fa-solid fa-certificate"></i></div>
-                        <h4>자격증</h4>
-                        <p>컴퓨터그래픽스운용기능사<br>컴퓨터활용능력</p>
+                    <div class="profile-grid">
+                        <div class="profile-card">
+                            <div class="profile-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <h4>학력</h4>
+                            <p>한양대학교 교육대학원<br>교육공학 전공 (재학)</p>
+                        </div>
+                        
+                        <div class="profile-card">
+                            <div class="profile-icon"><i class="fa-solid fa-briefcase"></i></div>
+                            <h4>경력</h4>
+                            <p>공공교육기관 전문가<br>국립대 교육혁신원 7년</p>
+                        </div>
+                        
+                        <div class="profile-card">
+                            <div class="profile-icon"><i class="fa-solid fa-trophy"></i></div>
+                            <h4>실력 인증</h4>
+                            <p>Kaggle 데이터 분석<br>상위 10% 달성</p>
+                        </div>
+                        
+                        <div class="profile-card">
+                            <div class="profile-icon"><i class="fa-solid fa-users"></i></div>
+                            <h4>커뮤니티</h4>
+                            <p>AI 전문 커뮤니티<br>400여 명 리더</p>
+                        </div>
+                        
+                        <div class="profile-card">
+                            <div class="profile-icon"><i class="fa-solid fa-certificate"></i></div>
+                            <h4>자격증</h4>
+                            <p>컴퓨터그래픽스운용기능사<br>컴퓨터활용능력</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <style>
-            /* 프로필 섹션 CSS */
-            .profile-section {
-                text-align: center;
-                margin-top: 60px;
-            }
-            
-            .profile-section h3 {
-                font-size: 2rem;
-                margin-bottom: 40px;
-                color: var(--text-main);
-            }
-            
-            .profile-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 30px;
-                margin-top: 40px;
-            }
-            
-            .profile-card {
-                background: var(--gradient-card);
-                padding: 30px 20px;
-                border-radius: var(--border-radius);
-                border: 1px solid var(--border-color);
-                transition: all var(--transition-speed) ease;
-                text-align: center;
-            }
-            
-            .profile-card:hover {
-                transform: translateY(-5px);
-                box-shadow: var(--shadow-card);
-                border-color: var(--border-light);
-            }
-            
-            .profile-icon {
-                font-size: 2.5rem;
-                background: var(--gradient-primary);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                margin-bottom: 15px;
-            }
-            
-            .profile-card h4 {
-                font-size: 1.1rem;
-                font-weight: 700;
-                color: var(--text-main);
-                margin-bottom: 12px;
-            }
-            
-            .profile-card p {
-                color: var(--text-secondary);
-                line-height: 1.6;
-                font-size: 0.95rem;
-            }
-            
-            /* 모바일 대응 */
-            @media (max-width: 768px) {
+                
+                <style>
+                /* 프로필 섹션 CSS */
+                .profile-section {
+                    text-align: center;
+                    margin-top: 60px;
+                }
+                
+                .profile-header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 30px;
+                    margin-bottom: 50px;
+                    flex-wrap: wrap;
+                }
+                
+                .profile-photo {
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 4px solid var(--primary);
+                    box-shadow: var(--shadow-card);
+                }
+                
+                .profile-intro {
+                    text-align: left;
+                    max-width: 400px;
+                }
+                
+                .profile-intro h3 {
+                    font-size: 2.2rem;
+                    font-weight: 700;
+                    color: var(--text-main);
+                    margin-bottom: 8px;
+                }
+                
+                .profile-role {
+                    font-size: 1.2rem;
+                    color: var(--primary);
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                }
+                
+                .profile-description {
+                    color: var(--text-secondary);
+                    line-height: 1.6;
+                    font-size: 1rem;
+                }
+                
                 .profile-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 20px;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: 30px;
+                    margin-top: 40px;
                 }
                 
                 .profile-card {
-                    padding: 25px 15px;
+                    background: var(--gradient-card);
+                    padding: 30px 20px;
+                    border-radius: var(--border-radius);
+                    border: 1px solid var(--border-color);
+                    transition: all var(--transition-speed) ease;
+                    text-align: center;
                 }
-            }
-            
-            @media (max-width: 480px) {
-                .profile-grid {
-                    grid-template-columns: 1fr;
+                
+                .profile-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: var(--shadow-card);
+                    border-color: var(--border-light);
                 }
-            }
-            </style>
+                
+                .profile-icon {
+                    font-size: 2.5rem;
+                    background: var(--gradient-primary);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    margin-bottom: 15px;
+                }
+                
+                .profile-card h4 {
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    color: var(--text-main);
+                    margin-bottom: 12px;
+                }
+                
+                .profile-card p {
+                    color: var(--text-secondary);
+                    line-height: 1.6;
+                    font-size: 0.95rem;
+                }
+                
+                /* 모바일 대응 */
+                @media (max-width: 768px) {
+                    .profile-header {
+                        flex-direction: column;
+                        text-align: center;
+                        gap: 20px;
+                    }
+                    
+                    .profile-intro {
+                        text-align: center;
+                    }
+                    
+                    .profile-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 20px;
+                    }
+                    
+                    .profile-card {
+                        padding: 25px 15px;
+                    }
+                }
+                
+                @media (max-width: 480px) {
+                    .profile-grid {
+                        grid-template-columns: 1fr;
+                    }
+                    
+                    .profile-photo {
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
+                </style>
     </section>
 
     <script>
