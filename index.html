@@ -1390,52 +1390,117 @@
 
             <!-- 수강생 후기 -->
             <div class="testimonials-section fade-in">
-                <h3>수강생 후기</h3>
-                <div class="testimonials-carousel">
-                    <div class="testimonial-card">
-                        <div class="testimonial-avatar">이</div>
-                        <p class="testimonial-text">AI가 막막하게만 느껴졌는데, 강사님 덕분에 자신감이 생겼어요. 당장 내일 회사에서 써먹을 수 있는 꿀팁을 많이 얻어 갑니다!</p>
-                        <p class="testimonial-author">이소영</p>
-                        <p class="testimonial-role">마케팅 전문가</p>
-                        <div class="testimonial-rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
+            <!-- 강사 프로필 -->
+            <div class="profile-section fade-in">
+                <h3>강사 소개</h3>
+                <div class="profile-grid">
+                    <div class="profile-card">
+                        <div class="profile-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h4>학력</h4>
+                        <p>한양대학교 교육대학원<br>교육공학 전공 (재학)</p>
                     </div>
-
-                    <div class="testimonial-card">
-                        <div class="testimonial-avatar">박</div>
-                        <p class="testimonial-text">이론적인 설명이 아니라 실제 업무에 바로 적용할 수 있는 내용들로 구성되어 있어서 정말 유용했습니다. 강의 후 업무 효율이 3배는 늘어난 것 같아요.</p>
-                        <p class="testimonial-author">박민호</p>
-                        <p class="testimonial-role">기획팀 팀장</p>
-                        <div class="testimonial-rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
+                    
+                    <div class="profile-card">
+                        <div class="profile-icon"><i class="fa-solid fa-briefcase"></i></div>
+                        <h4>경력</h4>
+                        <p>7년차 교육 전문가<br>국립대 교육혁신원 출신</p>
                     </div>
-
-                    <div class="testimonial-card">
-                        <div class="testimonial-avatar">김</div>
-                        <p class="testimonial-text">CEO로서 AI 도입을 고민하고 있었는데, 명확한 방향성을 제시해주셔서 감사합니다. 우리 회사 AI 전략의 큰 그림을 그릴 수 있게 되었어요.</p>
-                        <p class="testimonial-author">김진우</p>
-                        <p class="testimonial-role">스타트업 대표</p>
-                        <div class="testimonial-rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
+                    
+                    <div class="profile-card">
+                        <div class="profile-icon"><i class="fa-solid fa-trophy"></i></div>
+                        <h4>실력 인증</h4>
+                        <p>Kaggle 데이터 분석<br>상위 10% 달성</p>
+                    </div>
+                    
+                    <div class="profile-card">
+                        <div class="profile-icon"><i class="fa-solid fa-users"></i></div>
+                        <h4>커뮤니티</h4>
+                        <p>AI 전문 커뮤니티<br>400여 명 리더</p>
+                    </div>
+                    
+                    <div class="profile-card">
+                        <div class="profile-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <h4>자격증</h4>
+                        <p>컴퓨터그래픽스운용기능사<br>컴퓨터활용능력</p>
                     </div>
                 </div>
             </div>
-        </div>
+            
+            <style>
+            /* 프로필 섹션 CSS */
+            .profile-section {
+                text-align: center;
+                margin-top: 60px;
+            }
+            
+            .profile-section h3 {
+                font-size: 2rem;
+                margin-bottom: 40px;
+                color: var(--text-main);
+            }
+            
+            .profile-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 30px;
+                margin-top: 40px;
+            }
+            
+            .profile-card {
+                background: var(--gradient-card);
+                padding: 30px 20px;
+                border-radius: var(--border-radius);
+                border: 1px solid var(--border-color);
+                transition: all var(--transition-speed) ease;
+                text-align: center;
+            }
+            
+            .profile-card:hover {
+                transform: translateY(-5px);
+                box-shadow: var(--shadow-card);
+                border-color: var(--border-light);
+            }
+            
+            .profile-icon {
+                font-size: 2.5rem;
+                background: var(--gradient-primary);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin-bottom: 15px;
+            }
+            
+            .profile-card h4 {
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: var(--text-main);
+                margin-bottom: 12px;
+            }
+            
+            .profile-card p {
+                color: var(--text-secondary);
+                line-height: 1.6;
+                font-size: 0.95rem;
+            }
+            
+            /* 모바일 대응 */
+            @media (max-width: 768px) {
+                .profile-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                }
+                
+                .profile-card {
+                    padding: 25px 15px;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .profile-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+            </style>
     </section>
 
     <script>
