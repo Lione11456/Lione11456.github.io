@@ -901,86 +901,561 @@
         </section>
 
         <section id="history">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <p class="section-tag">LECTURE HIGHLIGHTS</p>
-                    <h2 class="section-title">생생한 강의 현장</h2>
-                    <p class="section-description">기업 실무 교육부터 대학 특강, 커뮤니티 워크숍까지 다양한 현장에서의 열정적인 순간들입니다.</p>
-                </div>
+          <!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강의 이력 섹션</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --primary: #38bdf8;
+            --secondary: #818cf8;
+            --accent: #f59e0b;
+            --text-main: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-color: #334155;
+            --border-light: #475569;
+            --gradient-primary: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            --gradient-card: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+            --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-card-hover: 0 10px 25px rgba(0, 0, 0, 0.25);
+            --transition-speed: 0.3s;
+            --border-radius: 16px;
+        }
 
-                <div class="gallery-grid">
-                    <div class="gallery-item fade-in">
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Noto Sans KR', 'Inter', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 120px 0;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .section-tag {
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .section-description {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Main Gallery Grid */
+        .lecture-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .showcase-card {
+            background: var(--gradient-card);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: all var(--transition-speed) ease;
+            position: relative;
+            group: hover;
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-card-hover);
+            border-color: var(--border-light);
+        }
+
+        .showcase-image {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .showcase-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .showcase-card:hover .showcase-image img {
+            transform: scale(1.05);
+        }
+
+        .showcase-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.2) 0%,
+                rgba(0,0,0,0.1) 50%,
+                rgba(0,0,0,0.6) 100%
+            );
+            opacity: 0;
+            transition: opacity var(--transition-speed) ease;
+        }
+
+        .showcase-card:hover .showcase-overlay {
+            opacity: 1;
+        }
+
+        .showcase-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .showcase-content {
+            padding: 30px;
+        }
+
+        .showcase-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .showcase-client {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .showcase-client i {
+            font-size: 0.9rem;
+        }
+
+        .showcase-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .showcase-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--gradient-card);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Testimonials Carousel */
+        .testimonials-section {
+            text-align: center;
+        }
+
+        .testimonials-section h3 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--text-main);
+        }
+
+        .testimonials-carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--gradient-card);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            position: relative;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-card);
+            border-color: var(--border-light);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 25px;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .testimonial-role {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-rating {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 15px;
+        }
+
+        .testimonial-rating i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .lecture-showcase {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .showcase-content {
+                padding: 25px;
+            }
+            
+            .stats-section {
+                padding: 40px 30px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
+            .testimonials-carousel {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-card {
+                padding: 30px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .stat-icon {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="history">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-tag">LECTURE HIGHLIGHTS</p>
+                <h2 class="section-title">생생한 강의 현장</h2>
+                <p class="section-description">기업 실무 교육부터 대학 특강, 커뮤니티 워크숍까지 다양한 현장에서의 열정적인 순간들입니다.</p>
+            </div>
+
+            <!-- 강의 현장 갤러리 -->
+            <div class="lecture-showcase">
+                <div class="showcase-card fade-in">
+                    <div class="showcase-image">
                         <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&q=80" alt="한화손해보험 강의 현장">
-                        <div class="gallery-caption">
-                            <h4 class="caption-title">'생성형 AI 업무 활용' 특강</h4>
-                            <p class="caption-client">한화손해보험 (2025.05)</p>
+                        <div class="showcase-overlay"></div>
+                        <div class="showcase-badge">기업 교육</div>
+                    </div>
+                    <div class="showcase-content">
+                        <h4 class="showcase-title">'생성형 AI 업무 활용' 특강</h4>
+                        <p class="showcase-client">
+                            <i class="fa-solid fa-building"></i>
+                            한화손해보험
+                        </p>
+                        <p class="showcase-date">2025년 5월</p>
+                        <p class="showcase-description">보험업계 특성에 맞춘 AI 활용 전략과 실무진의 업무 효율성 향상을 위한 ChatGPT 활용법을 중심으로 진행했습니다.</p>
+                    </div>
+                </div>
+
+                <div class="showcase-card fade-in">
+                    <div class="showcase-image">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80" alt="영상 스타트업 강의 현장">
+                        <div class="showcase-overlay"></div>
+                        <div class="showcase-badge">스타트업</div>
+                    </div>
+                    <div class="showcase-content">
+                        <h4 class="showcase-title">'AI와 비즈니스 혁신' 강연</h4>
+                        <p class="showcase-client">
+                            <i class="fa-solid fa-rocket"></i>
+                            영상 스타트업 임직원
+                        </p>
+                        <p class="showcase-date">2025년 3월</p>
+                        <p class="showcase-description">영상 제작 분야의 AI 도구 활용과 크리에이티브 워크플로우 혁신 방안에 대해 깊이 있게 다뤘습니다.</p>
+                    </div>
+                </div>
+
+                <div class="showcase-card fade-in">
+                    <div class="showcase-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" alt="플랫폼 CEO 커뮤니티 워크숍">
+                        <div class="showcase-overlay"></div>
+                        <div class="showcase-badge">경영진</div>
+                    </div>
+                    <div class="showcase-content">
+                        <h4 class="showcase-title">'AI 도입 전략' 워크숍</h4>
+                        <p class="showcase-client">
+                            <i class="fa-solid fa-users"></i>
+                            플랫폼 CEO 커뮤니티
+                        </p>
+                        <p class="showcase-date">2024년 12월</p>
+                        <p class="showcase-description">경영진 관점에서의 AI 도입 로드맵과 조직 변화 관리, ROI 측정 방법론을 중심으로 한 전략적 워크숍이었습니다.</p>
+                    </div>
+                </div>
+
+                <div class="showcase-card fade-in">
+                    <div class="showcase-image">
+                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&q=80" alt="마케터 커뮤니티 강의">
+                        <div class="showcase-overlay"></div>
+                        <div class="showcase-badge">커뮤니티</div>
+                    </div>
+                    <div class="showcase-content">
+                        <h4 class="showcase-title">'ChatGPT 활용 실무' 교육</h4>
+                        <p class="showcase-client">
+                            <i class="fa-solid fa-bullhorn"></i>
+                            직장인 마케터 커뮤니티
+                        </p>
+                        <p class="showcase-date">2024년 11월</p>
+                        <p class="showcase-description">마케팅 콘텐츠 제작과 캠페인 기획에 AI를 효과적으로 활용하는 실전 노하우를 공유했습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 통계 섹션 -->
+            <div class="stats-section fade-in">
+                <h3>강의 성과</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fa-solid fa-building"></i></div>
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">기업/단체</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                        <div class="stat-number">1,500+</div>
+                        <div class="stat-label">수강생</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+                        <div class="stat-number">4.9</div>
+                        <div class="stat-label">평점 (5점 만점)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fa-solid fa-trophy"></i></div>
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">만족도</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 수강생 후기 -->
+            <div class="testimonials-section fade-in">
+                <h3>수강생 후기</h3>
+                <div class="testimonials-carousel">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">이</div>
+                        <p class="testimonial-text">AI가 막막하게만 느껴졌는데, 강사님 덕분에 자신감이 생겼어요. 당장 내일 회사에서 써먹을 수 있는 꿀팁을 많이 얻어 갑니다!</p>
+                        <p class="testimonial-author">이소영</p>
+                        <p class="testimonial-role">마케팅 전문가</p>
+                        <div class="testimonial-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                         </div>
                     </div>
 
-                    <div class="gallery-item fade-in">
-                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80" alt="영상 스타트업 강의 현장">
-                        <div class="gallery-caption">
-                            <h4 class="caption-title">'AI와 비즈니스 혁신' 강연</h4>
-                            <p class="caption-client">영상 스타트업 임직원 (2025.03)</p>
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">박</div>
+                        <p class="testimonial-text">이론적인 설명이 아니라 실제 업무에 바로 적용할 수 있는 내용들로 구성되어 있어서 정말 유용했습니다. 강의 후 업무 효율이 3배는 늘어난 것 같아요.</p>
+                        <p class="testimonial-author">박민호</p>
+                        <p class="testimonial-role">기획팀 팀장</p>
+                        <div class="testimonial-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                         </div>
                     </div>
 
-                    <div class="gallery-item fade-in">
-                         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" alt="플랫폼 CEO 커뮤니티 워크숍">
-                        <div class="gallery-caption">
-                            <h4 class="caption-title">'AI 도입 전략' 워크숍</h4>
-                            <p class="caption-client">플랫폼 CEO 커뮤니티 (2024.12)</p>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item fade-in">
-                         <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=600&q=80" alt="마케터 커뮤니티 강의">
-                        <div class="gallery-caption">
-                            <h4 class="caption-title">'ChatGPT 활용 실무' 교육</h4>
-                            <p class="caption-client">직장인 마케터 커뮤니티 (2024.11)</p>
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">김</div>
+                        <p class="testimonial-text">CEO로서 AI 도입을 고민하고 있었는데, 명확한 방향성을 제시해주셔서 감사합니다. 우리 회사 AI 전략의 큰 그림을 그릴 수 있게 되었어요.</p>
+                        <p class="testimonial-author">김진우</p>
+                        <p class="testimonial-role">스타트업 대표</p>
+                        <div class="testimonial-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="profile">
-            <div class="container">
-                <div class="profile-container fade-in">
-                    <div class="profile-image">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" alt="AI 강사 김민준 프로필 사진">
-                    </div>
-                    <div class="profile-info">
-                        <h3>강사 프로필</h3>
-                        <ul>
-                            <li>
-                                <strong>이름:</strong> 
-                                <span>고윤재</span>
-                            </li>
-                            <li>
-                                <strong>주요 경력:</strong> 
-                                <span>(현) 전문 AI 강사, (현) AI데이터개발자 과정</span>
-                            </li>
-                            <li>
-                                <strong>학력:</strong> 
-                                <span>한양대학교 교육대학원 교육공학 석사 과정</span>
-                            </li>
-                            <li>
-                                <strong>저서:</strong> 
-                                <span>『실무자를 위한 생성형 AI 교과서』 (2024)</span>
-                            </li>
-                            <li>
-                                <strong>자격증:</strong> 
-                                <span>컴퓨터그래픽스 운용기능사</span>
-                            </li>
-                            <li>
-                                <strong>강의 경력:</strong> 
-                                <span>기업,단체,개인 등 1000명명+ 수강생</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
         </section>
 
         <section id="contact">
